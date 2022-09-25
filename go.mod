@@ -3,7 +3,7 @@ module github.com/BTBurke/caddy-etcd
 go 1.18
 
 require (
-	github.com/cenkalti/backoff v2.1.1+incompatible
+	github.com/cenkalti/backoff v2.2.1+incompatible
 	github.com/magefile/mage v1.8.0
 	github.com/mholt/caddy v0.11.4
 	github.com/mholt/certmagic v0.0.0-20190204191230-f92e85346d81
