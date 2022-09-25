@@ -45,6 +45,9 @@ github.com/google/uuid
 ## explicit
 # github.com/jonboulle/clockwork v0.3.0
 ## explicit; go 1.13
+# github.com/json-iterator/go v1.1.12
+## explicit; go 1.12
+github.com/json-iterator/go
 # github.com/klauspost/cpuid v1.2.0
 ## explicit
 github.com/klauspost/cpuid
@@ -64,6 +67,12 @@ github.com/mholt/certmagic
 # github.com/miekg/dns v1.1.3
 ## explicit
 github.com/miekg/dns
+# github.com/modern-go/concurrent v0.0.0-20180228061459-e0a39a4cb421
+## explicit
+github.com/modern-go/concurrent
+# github.com/modern-go/reflect2 v1.0.2
+## explicit; go 1.12
+github.com/modern-go/reflect2
 # github.com/pkg/errors v0.8.1
 ## explicit
 github.com/pkg/errors
@@ -81,7 +90,6 @@ github.com/stretchr/testify/assert
 ## explicit
 # github.com/ugorji/go/codec v0.0.0-20190204201341-e444a5086c43
 ## explicit
-github.com/ugorji/go/codec
 # github.com/xenolf/lego v2.1.0+incompatible
 ## explicit
 github.com/xenolf/lego/acme
@@ -102,7 +110,7 @@ github.com/xenolf/lego/platform/wait
 github.com/xenolf/lego/registration
 # github.com/xiang90/probing v0.0.0-20190116061207-43a291ad63a2
 ## explicit
-# go.etcd.io/etcd v3.3.12+incompatible
+# go.etcd.io/etcd v3.3.27+incompatible
 ## explicit
 go.etcd.io/etcd/client
 # go.uber.org/zap v1.23.0

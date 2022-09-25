@@ -9,7 +9,7 @@ require (
 	github.com/mholt/certmagic v0.0.0-20190204191230-f92e85346d81
 	github.com/pkg/errors v0.8.1
 	github.com/stretchr/testify v1.8.0
-	go.etcd.io/etcd v3.3.12+incompatible
+	go.etcd.io/etcd v3.3.27+incompatible
 )
 
 require (
@@ -31,8 +31,11 @@ require (
 	github.com/grpc-ecosystem/go-grpc-prometheus v1.2.0 // indirect
 	github.com/grpc-ecosystem/grpc-gateway v1.7.0 // indirect
 	github.com/jonboulle/clockwork v0.3.0 // indirect
+	github.com/json-iterator/go v1.1.12 // indirect
 	github.com/klauspost/cpuid v1.2.0 // indirect
 	github.com/miekg/dns v1.1.3 // indirect
+	github.com/modern-go/concurrent v0.0.0-20180228061459-e0a39a4cb421 // indirect
+	github.com/modern-go/reflect2 v1.0.2 // indirect
 	github.com/pmezard/go-difflib v1.0.0 // indirect
 	github.com/prometheus/client_golang v0.9.2 // indirect
 	github.com/soheilhy/cmux v0.1.5 // indirect
