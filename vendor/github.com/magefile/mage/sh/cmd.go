@@ -69,6 +69,12 @@ func RunWith(env map[string]string, cmd string, args ...string) error {
 	return err
 }
 
+// RunWithV is like RunWith, but always sends the command's stdout to os.Stdout.
+func RunWithV(env map[string]string, cmd string, args ...string) error {
+	_, err := Exec(env, os.Stdout, os.Stderr, cmd, args...)
+	return err
+}
+
 // Output runs the command and returns the text from stdout.
 func Output(cmd string, args ...string) (string, error) {
 	buf := &bytes.Buffer{}
@@ -76,21 +82,21 @@ func Output(cmd string, args ...string) (string, error) {
 	return strings.TrimSuffix(buf.String(), "\n"), err
 }
 
-// OutputWith is like RunWith, ubt returns what is written to stdout.
+// OutputWith is like RunWith, but returns what is written to stdout.
 func OutputWith(env map[string]string, cmd string, args ...string) (string, error) {
 	buf := &bytes.Buffer{}
 	_, err := Exec(env, buf, os.Stderr, cmd, args...)
 	return strings.TrimSuffix(buf.String(), "\n"), err
 }
 
-// Exec executes the command, piping its stderr to mage's stderr and
-// piping its stdout to the given writer. If the command fails, it will return
-// an error that, if returned from a target or mg.Deps call, will cause mage to
-// exit with the same code as the command failed with.  Env is a list of
-// environment variables to set when running the command, these override the
-// current environment variables set (which are also passed to the command). cmd
-// and args may include references to environment variables in $FOO format, in
-// which case these will be expanded before the command is run.
+// Exec executes the command, piping its stdout and stderr to the given
+// writers. If the command fails, it will return an error that, if returned
+// from a target or mg.Deps call, will cause mage to exit with the same code as
+// the command failed with. Env is a list of environment variables to set when
+// running the command, these override the current environment variables set
+// (which are also passed to the command). cmd and args may include references
+// to environment variables in $FOO format, in which case these will be
+// expanded before the command is run.
 //
 // Ran reports if the command ran (rather than was not found or not executable).
 // Code reports the exit code the command returned if it ran. If err == nil, ran
@@ -126,11 +132,18 @@ func run(env map[string]string, stdout, stderr io.Writer, cmd string, args ...st
 	c.Stderr = stderr
 	c.Stdout = stdout
 	c.Stdin = os.Stdin
-	log.Println("exec:", cmd, strings.Join(args, " "))
+
+	var quoted []string 
+	for i := range args {
+		quoted = append(quoted, fmt.Sprintf("%q", args[i]));
+	}
+	// To protect against logging from doing exec in global variables
+	if mg.Verbose() {
+		log.Println("exec:", cmd, strings.Join(quoted, " "))
+	}
 	err = c.Run()
 	return CmdRan(err), ExitStatus(err), err
 }
-
 // CmdRan examines the error to determine if it was generated as a result of a
 // command running via os/exec.Command.  If the error is nil, or the command ran
 // (even if it exited with a non-zero exit code), CmdRan reports true.  If the
