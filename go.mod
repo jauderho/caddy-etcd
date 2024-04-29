@@ -8,7 +8,7 @@ require (
 	github.com/mholt/caddy v0.11.4
 	github.com/mholt/certmagic v0.0.0-20190204191230-f92e85346d81
 	github.com/pkg/errors v0.8.1
-	github.com/stretchr/testify v1.8.0
+	github.com/stretchr/testify v1.9.0
 	go.etcd.io/etcd v3.3.12+incompatible
 )
 

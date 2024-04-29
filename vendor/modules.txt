@@ -74,8 +74,8 @@ github.com/pmezard/go-difflib/difflib
 ## explicit
 # github.com/soheilhy/cmux v0.1.5
 ## explicit; go 1.11
-# github.com/stretchr/testify v1.8.0
-## explicit; go 1.13
+# github.com/stretchr/testify v1.9.0
+## explicit; go 1.17
 github.com/stretchr/testify/assert
 # github.com/tmc/grpc-websocket-proxy v0.0.0-20190109142713-0ad062ec5ee5
 ## explicit
